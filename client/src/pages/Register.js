@@ -58,7 +58,7 @@ function Register() {
     if (!validate()) return;
 
     try {
-      const res = await axios.post('http://localhost:5000/register', formData);
+      const res = await axios.post('https://hrms-project-lx63.onrender.com', formData);
       alert(res.data.message);
       setTimeout(() => {
         window.location.href = '/';
