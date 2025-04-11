@@ -25,7 +25,7 @@ const Home = () => {
     if (!email) return (window.location.href = "/");
 
     axios
-      .get(`http://localhost:5000/employee/${email}`)
+      .get(`https://hrms-project-lx63.onrender.com${email}`)
       .then((res) => {
         console.log("✅ Employee fetched:", res.data);
         setFormData(res.data);
@@ -56,7 +56,7 @@ const Home = () => {
     };
 
     axios
-      .put(`http://localhost:5000/employee/update`, {
+      .put(`https://hrms-project-lx63.onrender.com`, {
         email,
         ...updatedFields
       })
@@ -166,7 +166,7 @@ const Home = () => {
 
             {formData.photo && (
               <img
-                src={`http://localhost:5000${formData.photo}`}
+                src={`https://hrms-project-lx63.onrender.com${formData.photo}`}
                 alt="Uploaded"
                 style={{ width: "150px", display: "block", marginBottom: "10px" }}
               />
@@ -185,14 +185,14 @@ const Home = () => {
                 form.append('photo', file);
 
                 try {
-                  const res = await axios.post('http://localhost:5000/upload/photo', form, {
+                  const res = await axios.post('https://hrms-project-lx63.onrender.com', form, {
                     headers: { 'Content-Type': 'multipart/form-data' }
                   });
 
                   const photoPath = res.data.path;
                   setFormData({ ...formData, photo: photoPath });
 
-                  await axios.put('http://localhost:5000/employee/update', {
+                  await axios.put('https://hrms-project-lx63.onrender.com', {
                     email,
                     address: formData.address,
                     photo: photoPath
@@ -208,7 +208,7 @@ const Home = () => {
             {formData.photo && (
               <p style={{ marginTop: '10px' }}>
                 📎 <a
-                  href={`http://localhost:5000${formData.photo}`}
+                  href={`https://hrms-project-lx63.onrender.com${formData.photo}`}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
