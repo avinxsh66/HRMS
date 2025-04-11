@@ -18,7 +18,7 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:5000/login', { email, password });
+      const res = await axios.post('https://hrms-project-lx63.onrender.com', { email, password });
       localStorage.setItem('token', res.data.token);  // ✅ Store token
       localStorage.setItem('email', res.data.email);  // ✅ Store email for Home.js
       setMsg(res.data.message);
